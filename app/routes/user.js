@@ -13,7 +13,7 @@ router.get('/:userId', (req, res, next) => {
     },
   } = req
 
-  User.getUserProfile()
+  User.getUserProfile(userId)
     .then(response => res.json(response))
     .catch(error => next(error))
 })
@@ -23,9 +23,10 @@ router.patch('/:userId', UserFormValidation.updateProfile, (req, res, next) => {
     params: {
       userId
     },
+    body
   } = req
 
-  User.updateUserProfile()
+  User.updateUserProfile(userId, body)
     .then(response => res.json(response))
     .catch(error => next(error))
 })
