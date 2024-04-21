@@ -15,12 +15,6 @@ module.exports = express => {
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(helmet())
 
-  app.get('/', (req, res) => {
-    res.json({
-      status: 'OK'
-    })
-  })
-
   routes(app)
 
   return app
