@@ -2,6 +2,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const helmet = require('helmet')
 const environment = process.env.NODE_ENV || 'development'
+const routes = require('../app/routes')
 
 module.exports = express => {
   const app = express()
@@ -19,6 +20,8 @@ module.exports = express => {
       status: 'OK'
     })
   })
+
+  routes(app)
 
   return app
 }
