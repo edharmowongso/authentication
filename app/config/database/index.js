@@ -3,12 +3,14 @@ const AppConfig = require('../app_config')
 module.exports = require('knex')({
   client: 'pg',
   connection: {
+    connectionString: AppConfig.database.uri,
     host: AppConfig.database.host,
     user: AppConfig.database.user,
     password: AppConfig.database.password,
     database: AppConfig.database.database,
     port: AppConfig.database.port || 3306,
-    timezone: AppConfig.database.timezone
+    timezone: AppConfig.database.timezone,
+    ssl: false,
   },
   pool: {
     min: 1,
