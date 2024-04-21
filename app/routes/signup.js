@@ -1,12 +1,10 @@
 'use strict'
 
 const router = require('express').Router()
-const CheckAuthorization = require('../middleware/authorization')
+const AccountFormValidation = require('../middleware/form_requirement').Account
 const Account = require('../lib/account')
 
-router.use(CheckAuthorization)
-
-router.get('/', CheckAuthorization, (req, res, next) => {
+router.post('/', AccountFormValidation.signup, (req, res, next) => {
   Account.signup()
     .then(response => res.json(response))
     .catch(error => next(error))
