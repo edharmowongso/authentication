@@ -1,0 +1,47 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "description": "API SUPERB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "TZ=UTC jest --config=./tests/jest.unit.config.js --detectOpenHandles --coverage",
+    "reinstall": "rm -rf node_modules && rm -rf package-lock.json && npm i",
+    "ci-install": "npm ci --only=prod --ignore-scripts",
+    "standard": "standard --fix --verbose | snazzy",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "debug": "nodemon --inspect-brk app.js",
+    "postinstall": "husky install"
+  },
+  "author": "Eka PD",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.3",
+    "express-rate-limit": "^3.4.1",
+    "express-validator": "^5.3.0",
+    "helmet": "^3.21.3",
+    "moment": "^2.29.1",
+    "request-ip": "^2.1.1",
+    "response-time": "^2.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@types/jest": "^26.0.9",
+    "babel-jest": "^24.9.0",
+    "husky": "^7.0.4",
+    "jest": "^24.9.0",
+    "jest-extended": "^0.11.2",
+    "jest-junit": "^13.0.0",
+    "nodemon": "^1.18.11",
+    "snazzy": "^8.0.0",
+    "standard": "^17.0.0"
+  }
+}
