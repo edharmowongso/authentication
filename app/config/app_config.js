@@ -13,10 +13,13 @@ let config = {
   },
 }
 
+console.log(process.env)
+
 const appConfig = {
   getConfig (environment = process.env.NODE_ENV) {
     switch (environment) {
       case 'staging':
+        console.log(config)
         return Object.freeze(config)
       default:
         return Object.freeze(config)
